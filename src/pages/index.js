@@ -16,7 +16,6 @@ class RootIndex extends React.Component {
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
-          <Hero data={author.node} />
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
             <ul className="article-list">
@@ -45,12 +44,7 @@ export const pageQuery = graphql`
           title
           slug
           publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
+          tags         
           description {
             childMarkdownRemark {
               html
@@ -68,17 +62,7 @@ export const pageQuery = graphql`
           shortBio {
             shortBio
           }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
+          title          
         }
       }
     }
